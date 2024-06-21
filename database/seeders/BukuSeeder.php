@@ -13,16 +13,16 @@ class BukuSeeder extends Seeder
      */
     public function run(): void
     {
-        $buku1 = DataBuku::create([
-            'kode_buku' => 'B001',
-            'nama_buku' => 'si malin kundang',
-            'jumlah_tersedia' => '2'
-        ]);
+        // $buku1 = DataBuku::create([
+        //     'kode_buku' => 'B001',
+        //     'nama_buku' => 'si malin kundang',
+        //     'jumlah_tersedia' => '2'
+        // ]);
 
-        $buku2 = DataBuku::create([
-            'kode_buku' => 'B002',
-            'nama_buku' => 'kisah roro jongrang',
-            'jumlah_tersedia' => '2'
-        ]);
+        // $buku2 = DataBuku::create([
+        //     'kode_buku' => 'B002',
+        //     'nama_buku' => 'kisah roro jongrang',
+        //     'jumlah_tersedia' => '2'
+        // ]);
     }
 }

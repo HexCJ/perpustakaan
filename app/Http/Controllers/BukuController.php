@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BukuController extends Controller
 {
     public function show(){
-        $buku = DataBuku::all();
+        $buku = DataBuku::paginate(10);
         return view('buku.databuku',[
             'bukus' => $buku
         ]);

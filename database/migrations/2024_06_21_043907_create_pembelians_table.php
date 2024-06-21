@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pembelians', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_buku');
+            $table->string('kode_buku')->unique();
             $table->string('pengarang');
             $table->string('nama_buku');
             $table->integer('jumlah');

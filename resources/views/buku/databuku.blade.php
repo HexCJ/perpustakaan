@@ -1,12 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Data Buku') }}
         </h2>
-
-        <a href="{{route('tambah_pembelian')}}"> Tambah Buku </a>
-        </div>
     </x-slot>
 
 
@@ -35,6 +31,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $bukus->links() }}
                  </div>
             </div>
         </div>

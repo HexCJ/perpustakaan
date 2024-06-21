@@ -22,5 +22,13 @@ class PembelianSeeder extends Seeder
             'jumlah' => '2',
             'total_harga' => '20000'
         ]);
+        $pembelian2 = Pembelian::create([
+            'kode_buku' => 'B002',
+            'nama_buku' => 'kisah roro jongrang',
+            'pengarang' => 'tidak tahu',
+            'harga' => '10000',
+            'jumlah' => '2',
+            'total_harga' => '20000'
+        ]);
     }
 }

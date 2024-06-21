@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PembelianController extends Controller
 {
     public function show(){
-        $dpembelian = Pembelian::all();
+        $dpembelian = Pembelian::paginate(5);
         return view('datapembelian.datapembelian',[
         'pembelians' => $dpembelian
         ]);
@@ -29,8 +29,18 @@ class PembelianController extends Controller
         if($pembelian = Pembelian::create($data)){
             return redirect()->route('datapembelian')->with('success', 'Data User berhasil ditambahkan');
         } else{
-            return redirect()->route('datapembelian')->with('success', 'Data User berhasil ditambahkan');
+            return redirect()->route('tambah_pembelian')->with('fail', 'Data User gagal ditambahkan');
+        }
+    }
 
+    public function destroy($id)
+    {
+        $data = Pembelian::findOrFail($id);
+        $nama_buku = $data->nama_buku;
+        if($data->delete()){
+            return redirect()->back()->with('success', 'Data Pembelian '.$nama_buku.' berhasil dihapus');
+        }else{
+            return redirect()->back()->with('fail', 'Data Pembelian gagal '.$nama_buku.' dihapus');
         }
     }
 }

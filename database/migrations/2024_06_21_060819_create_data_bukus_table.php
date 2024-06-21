@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_bukus', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_buku');
+            $table->string('kode_buku')->unique();
             $table->string('nama_buku');
             $table->string('jumlah_tersedia');
             $table->timestamps();

@@ -14,4 +14,9 @@ class DataBuku extends Model
         'nama_buku',
         'jumlah_tersedia'
     ];
+
+    public function peminjaman()
+    {
+        return $this->hasOne(Peminjaman::class, 'kode_buku', 'kode_buku');
+    }
 }

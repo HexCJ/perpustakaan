@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -39,11 +40,19 @@ Route::get('/databuku', [BukuController::class, 'show'])->middleware(['auth', 'v
 Route::get('/datapembelian', [PembelianController::class, 'show'])->middleware(['auth', 'verified'])->name('datapembelian');
 Route::get('/tambah_datapembelian', [PembelianController::class, 'create'])->middleware(['auth', 'verified'])->name('tambah_pembelian');
 Route::post('/store_datapembelian', [PembelianController::class, 'store'])->middleware(['auth', 'verified'])->name('store_pembelian');
+Route::post('/update_datapembelian', [PembelianController::class, 'update'])->middleware(['auth', 'verified'])->name('edit_datapembelian');
+Route::delete('/destroy_datapembelian{id}', [PembelianController::class, 'destroy'])->middleware(['auth', 'verified'])->name('hapus_datapembelian');
 
 
-Route::get('/peminjaman', function () {
-    return view('peminjaman');
-})->middleware(['auth', 'verified'])->name('peminjaman');
+
+Route::get('/datapeminjaman', [PeminjamanController::class, 'show'])->middleware(['auth', 'verified'])->name('datapeminjaman');
+Route::get('/datapeminjamanhistory', [PeminjamanController::class, 'showHistory'])->middleware(['auth', 'verified'])->name('datapeminjamanhistory');
+Route::get('/tambah_datapeminjaman', [PeminjamanController::class, 'create'])->middleware(['auth', 'verified'])->name('tambah_pinjam');
+Route::post('/store_datapeminjaman', [PeminjamanController::class, 'store'])->middleware(['auth', 'verified'])->name('store_pinjam');
+Route::post('/peminjaman/update-status', [PeminjamanController::class, 'updateStatus'])->name('peminjaman.updateStatus');
+Route::get('/datapeminjamandetail{id}', [PeminjamanController::class, 'showdetail'])->middleware(['auth', 'verified'])->name('peminjaman.detail');
+Route::delete('/destroy_datapeminjaman{id}', [PeminjamanController::class, 'destroy'])->middleware(['auth', 'verified'])->name('hapus_datapeminjaman');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
